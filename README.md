@@ -1,4 +1,4 @@
-# template_ph3_webapp
+# ph3_webapp
 
 ## 環境構築手法
 
@@ -91,4 +91,3 @@ http://localhost
 以下に従ってやろ
 ![参考画像](./src/public/img/Screen%20Shot%202023-03-07%20at%2023.43.26.png)
 
-# ph3-webapp
