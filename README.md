@@ -72,14 +72,29 @@ VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 docker-compose build --no-cache
 docker-compose up -d
 docker-compose exec phpfpm bash
+composer create-project --prefer-dist laravel/laravel . "10.*"
 ```
+http://localhost
+にアクセスして、Laravelの画面が表示されたら成功です
 
-以下は、bashでrootの中に入ったと思うので、そこで実行してね
+以下は、phpfomコンテナ内でそこで実行してね
 ```console
-npm install
 composer install
 php artisan optimize:clear
 php artisan migrate --seed
+```
+
+## laravelのbreezeをinstallしていく
+
+phpfpmコンテナの中で以下のコマンドを実行してください
+```console
+composer require laravel/breeze --dev
+php artisan breeze:install
+```
+
+nodeコンテナの中で以下のコマンドを実行してください
+```
+npm install
 npm run build
 ```
 
