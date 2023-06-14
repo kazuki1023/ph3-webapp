@@ -81,7 +81,7 @@ http://localhost
 ```console
 composer install
 php artisan optimize:clear
-php artisan migrate --seed
+php artisan migrate:fresh --seed
 ```
 
 ## laravelのbreezeをinstallしていく
