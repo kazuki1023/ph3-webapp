@@ -36,23 +36,26 @@
         @endif
 
         <!-- Page Content -->
+        @if(isset($barChart))
         <main class="relative mx-auto grid gap-10 pt-50 grid-cols-2 ">
             <div class="grid gap-10 min-w-[400px]">
                 <ul class="grid grid-cols-3 gap-6 h-[160px]">
                     {{ $slot }}
                 </ul>
-                @if(isset($barChart))
                     <div class="h-[400px]  p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
                         {{ $barChart }}
                     </div>
-                @endif
             </div>
-            @if(isset($paiChart))
                 <div class="grid gap-10 min-w-[400px] grid-cols-2">
                     {{ $paiChart }}
                 </div>
-            @endif
         </main>
+        @else
+        {{-- Profile Content --}}
+        <main>
+            {{ $slot }}
+        </main>
+        @endif
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </body>
