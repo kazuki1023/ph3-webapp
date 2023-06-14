@@ -5,7 +5,7 @@
 <div class="max-w-sm py-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <p>{{ $subTitle }}</p>
     {{-- paiChart挿入する --}}
-    <div id="{{ $paiChart }}"></div>
+    <div id="{{ $paiChart }}" class="mx-auto"></div>
 </div>
 <script>
     var options = {

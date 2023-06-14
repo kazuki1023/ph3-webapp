@@ -1,14 +1,23 @@
 @props([
-  'barChart' => 'barChart'
+    'barChart' => 'barChart',
 ])
 <div class="">
     {{-- barChart挿入する --}}
     <div id="{{ $barChart }}"></div>
 </div>
 <script>
+    var hourData = <?php echo json_encode($hourData); ?>;
+
+    var dates = [];
+    var hours = [];
+
+    hourData.forEach(function(item) {
+        dates.push(item.date);
+        hours.push(item.total_hour);
+    });
     var options = {
         series: [{
-            data: [44, 55, 41, 67, 22, 43, 21, 33, 45, 31, 87, 65, 35]
+            data: hours,
         }],
         chart: {
             height: 350,
@@ -36,9 +45,7 @@
             labels: {
                 rotate: -45
             },
-            categories: ['Apples', 'Oranges', 'Strawberries', 'Pineapples', 'Mangoes', 'Bananas',
-                'Blackberries', 'Pears', 'Watermelons', 'Cherries', 'Pomegranates', 'Tangerines', 'Papayas'
-            ],
+            categories: dates,
             tickPlacement: 'on'
         },
         yaxis: {
