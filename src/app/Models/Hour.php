@@ -18,6 +18,6 @@ class Hour extends Model
     public function scopeTotalHourByDate($query)
     {
         return $query->select(DB::raw('DATE(date) AS date'), DB::raw('SUM(hour) AS total_hour'))
-            ->groupBy('date');
+            ->groupBy('date')->orderBy('date','asc');
     }
 }
