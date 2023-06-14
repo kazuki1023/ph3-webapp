@@ -23,6 +23,9 @@
             'description' => 'Card Description',
         ])
     </x-slot>
+    <x-slot name="barChart">
+        @include('layouts.barChart')
+    </x-slot>
     <x-slot name="paiChart">
         @include('layouts.paiChart', [
             'subTitle' => 'コンテンツ学習時間',
@@ -31,9 +34,7 @@
             'subTitle' => '学習時間',
         ])
     </x-slot>
-    <x-slot name="barChart">
-        @include('layouts.barChart')
-    </x-slot>
+
 
 </x-app-layout>
 <!-- Main modal -->
