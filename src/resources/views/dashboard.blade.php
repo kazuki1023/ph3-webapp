@@ -24,7 +24,9 @@
         ])
     </x-slot>
     <x-slot name="barChart">
-        @include('layouts.barChart')
+        @include('layouts.barChart', [
+            'barChart' => 'barChart'
+        ])
     </x-slot>
     <x-slot name="paiChart">
         @include('layouts.paiChart', [
