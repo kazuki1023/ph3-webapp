@@ -27,9 +27,11 @@
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
-                <div class="justify-center flex items-center mr-5">
-                    {{ $modalButton }}
-                </div>
+                @if (isset($modalButton))
+                    <div class="justify-center flex items-center mr-5">
+                        {{ $modalButton }}
+                    </div>
+                @endif
             </header>
         @endif
 
@@ -39,13 +41,17 @@
                 <ul class="grid grid-cols-3 gap-6 h-[160px]">
                     {{ $slot }}
                 </ul>
-                <div class="h-[400px]  p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
-                    {{ $barChart }}
+                @if(isset($barChart))
+                    <div class="h-[400px]  p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+                        {{ $barChart }}
+                    </div>
+                @endif
+            </div>
+            @if(isset($paiChart))
+                <div class="grid gap-10 min-w-[400px] grid-cols-2">
+                    {{ $paiChart }}
                 </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4 h-[600px] ">
-                {{ $paiChart }}
-            </div>
+            @endif
         </main>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
