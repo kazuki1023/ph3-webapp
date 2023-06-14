@@ -29,9 +29,11 @@
     <x-slot name="paiChart">
         @include('layouts.paiChart', [
             'subTitle' => 'コンテンツ学習時間',
+            'paiChart' => 'mediumChart'
         ])
         @include('layouts.paiChart', [
-            'subTitle' => '学習時間',
+            'subTitle' => '学習言語時間',
+            'paiChart' => 'languageChart'
         ])
     </x-slot>
 
