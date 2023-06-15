@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('hour_language', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('hour_id')->constrained('hours')->comment("学習時間ID");
-            $table->foreignId('language_id')->constrained('languages')->comment("言語ID");
+            $table->foreignId('time_id')->constrained('hours')->comment("学習時間ID");
+            $table->foreignId('name_id')->constrained('languages')->comment("言語ID");
             $table->timestamps();
         });
     }

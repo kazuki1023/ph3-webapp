@@ -19,7 +19,7 @@ class HourFactory extends Factory
     public function definition(): array
     {
         return [
-            'hour' => $this->faker->numberBetween(1, 10),
+            'time' => $this->faker->numberBetween(1, 10),
             'user_id' => 1,
             'date' => $this->faker->dateTimeBetween('-2 week', '+2 week')->format('Y-m-d'),
         ];

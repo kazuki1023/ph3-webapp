@@ -16,16 +16,16 @@ class MediaTableSeeder extends Seeder
         Medium::insert([
             [
                 'id' => 1,
-                'medium' => 'N予備校',
+                'content' => 'N予備校',
             ], [
                 'id' => 2,
-                'medium' => 'YouTube',
+                'content' => 'YouTube',
             ], [
                 'id' => 3,
-                'medium' => '書籍',
+                'content' => '書籍',
             ], [
                 'id' => 4,
-                'medium' => 'その他',
+                'content' => 'その他',
             ]
         ]);
     }

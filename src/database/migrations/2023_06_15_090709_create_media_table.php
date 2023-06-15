@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('media', function (Blueprint $table) {
             $table->id();
-            $table->string('medium')->comment("学習媒体");
+            $table->string('content')->comment("学習媒体");
             $table->timestamps();
         });
     }

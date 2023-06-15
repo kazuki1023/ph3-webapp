@@ -16,64 +16,64 @@ class LanguagesTableSeeder extends Seeder
         Language::insert([
             [
                 'id' => 1,
-                'language' => 'HTML',
+                'name' => 'HTML',
             ], [
                 'id' => 2,
-                'language' => 'CSS',
+                'name' => 'CSS',
             ], [
                 'id' => 3,
-                'language' => 'JavaScript',
+                'name' => 'JavaScript',
             ], [
                 'id' => 4,
-                'language' => 'PHP',
+                'name' => 'PHP',
             ], [
                 'id' => 5,
-                'language' => 'Laravel',
+                'name' => 'Laravel',
             ], [
                 'id' => 6,
-                'language' => 'Ruby',
+                'name' => 'Ruby',
             ], [
                 'id' => 7,
-                'language' => 'Ruby on Rails',
+                'name' => 'Ruby on Rails',
             ], [
                 'id' => 8,
-                'language' => 'Python',
+                'name' => 'Python',
             ], [
                 'id' => 9,
-                'language' => 'Django',
+                'name' => 'Django',
             ], [
                 'id' => 10,
-                'language' => 'Java',
+                'name' => 'Java',
             ], [
                 'id' => 11,
-                'language' => 'Spring',
+                'name' => 'Spring',
             ], [
                 'id' => 12,
-                'language' => 'Kotlin',
+                'name' => 'Kotlin',
             ], [
                 'id' => 13,
-                'language' => 'Swift',
+                'name' => 'Swift',
             ], [
                 'id' => 14,
-                'language' => 'Go',
+                'name' => 'Go',
             ], [
                 'id' => 15,
-                'language' => 'C',
+                'name' => 'C',
             ], [
                 'id' => 16,
-                'language' => 'C++',
+                'name' => 'C++',
             ], [
                 'id' => 17,
-                'language' => 'C#',
+                'name' => 'C#',
             ], [
                 'id' => 18,
-                'language' => 'Scala',
+                'name' => 'Scala',
             ], [
                 'id' => 19,
-                'language' => 'R',
+                'name' => 'R',
             ], [
                 'id' => 20,
-                'language' => 'その他', 
+                'name' => 'その他', 
             ]
         ]);
     }
