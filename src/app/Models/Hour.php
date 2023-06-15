@@ -12,12 +12,12 @@ class Hour extends Model
     use HasFactory;
     public function hourLanguages()
     {
-        return $this->hasMany(HourLanguage::class, 'hour_id');
+        return $this->hasMany(HourLanguage::class, 'time_id');
     }
 
     public function scopeTotalHourByDate($query)
     {
-        return $query->select(DB::raw('DATE(date) AS date'), DB::raw('SUM(hour) AS total_hour'))
+        return $query->select(DB::raw('DATE(date) AS date'), DB::raw('SUM(time) AS total_hour'))
             ->groupBy('date')->orderBy('date','asc');
     }
 }
