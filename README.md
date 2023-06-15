@@ -71,6 +71,9 @@ VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 ```console
 docker-compose build --no-cache
 docker-compose up -d
+```
+### 最初にやる人は、以下のコマンドを実行してください
+```
 docker-compose exec phpfpm bash
 composer create-project --prefer-dist laravel/laravel . "10.*"
 ```
@@ -83,8 +86,7 @@ composer install
 php artisan optimize:clear
 php artisan migrate:fresh --seed
 ```
-
-## laravelのbreezeをinstallしていく
+## laravelのbreezeをinstallしていく(初回のみ)
 
 phpfpmコンテナの中で以下のコマンドを実行してください
 ```console
