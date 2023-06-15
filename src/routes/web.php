@@ -28,4 +28,8 @@ Route::middleware('auth')->group(function () {
 });
 require __DIR__.'/auth.php';
 
-Route::get('/dashboard', [HourController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+// グループ化されたルートの定義
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [HourController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+});
