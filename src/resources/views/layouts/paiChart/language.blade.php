@@ -1,28 +1,30 @@
 @props([
     'subTitle' => 'subTitle',
     'paiChart' => 'paiChart',
-    'mediumHourData' => 'mediumHourData',
+    'languageHourData' => 'languageHourData',
 ])
 <div class="max-w-sm py-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <p>{{ $subTitle }}</p>
     {{-- paiChart挿入する --}}
-    <div id="{{ $paiChart }}" class="mx-auto"></div>
+    <div id="{{ $paiChart }}" class="mx-auto h-80"></div>
 </div>
 <script>
-    var hourData = <?php echo json_encode($mediumHourData, JSON_UNESCAPED_UNICODE); ?>;
+    var languageHourData = <?php echo json_encode($languageHourData, JSON_UNESCAPED_UNICODE); ?>;
 
-    var contents = [];
+    var names = [];
     var hours = [];
 
-    hourData.forEach(function(item) {
-        contents.push(item.content);
+    languageHourData.forEach(function(item) {
+        names.push(item.name);
         hours.push(parseFloat(item.total_hour));
     });
+    console.log(hours)
     var options = {
         series: hours,
-        labels: contents,
+        labels: names,
         chart: {
-            width: 270,
+            width: '100%',
+            height: 320,
             type: 'donut',
         },
         plotOptions: {

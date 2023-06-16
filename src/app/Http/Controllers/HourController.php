@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Hour;
 use App\Models\HourMedium;
+use App\Models\HourLanguage;
 use Illuminate\Http\Request;
 
 class HourController extends Controller
@@ -14,6 +15,9 @@ class HourController extends Controller
 
         // 学習媒体別の円グラフ用のデータを取得
         $mediumHourData = HourMedium::totalHourByMedium()->get();
-        return view('/dashboard', compact('hourData', 'mediumHourData'));
+
+        // 学習言語ごとの円グラフ用のデータを取得
+        $languageHourData = HourLanguage::totalHourByLanguage()->get();
+        return view('/dashboard', compact('hourData', 'mediumHourData', 'languageHourData'));
     }
 }

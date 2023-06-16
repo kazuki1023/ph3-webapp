@@ -33,7 +33,7 @@
             'subTitle' => 'コンテンツ学習時間',
             'paiChart' => 'mediumChart'
         ])
-        @include('layouts.paiChart', [
+        @include('layouts.paiChart.language', [
             'subTitle' => '学習言語時間',
             'paiChart' => 'languageChart'
         ])

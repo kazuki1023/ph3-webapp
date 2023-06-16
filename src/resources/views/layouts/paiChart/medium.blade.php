@@ -9,12 +9,12 @@
     <div id="{{ $paiChart }}" class="mx-auto"></div>
 </div>
 <script>
-    var hourData = <?php echo json_encode($mediumHourData, JSON_UNESCAPED_UNICODE); ?>;
+    var mediumHourData = <?php echo json_encode($mediumHourData, JSON_UNESCAPED_UNICODE); ?>;
 
     var contents = [];
     var hours = [];
 
-    hourData.forEach(function(item) {
+    mediumHourData.forEach(function(item) {
         contents.push(item.content);
         hours.push(parseFloat(item.total_hour));
     });
@@ -22,7 +22,7 @@
         series: hours,
         labels: contents,
         chart: {
-            width: 270,
+            width: '100%',
             type: 'donut',
         },
         plotOptions: {
