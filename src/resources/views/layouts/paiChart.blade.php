@@ -8,16 +8,26 @@
     <div id="{{ $paiChart }}" class="mx-auto"></div>
 </div>
 <script>
+    var mediumHourData = <?php echo json_encode($mediumHourData, JSON_UNESCAPED_UNICODE); ?>;
+
+    var contents = [];
+    var hours = [];
+
+    mediumHourData.forEach(function(item) {
+        contents.push(item.content);
+        hours.push(parseFloat(item.total_hour));
+    });
     var options = {
-        series: [44, 55, 41, 17, 15],
+        series: hours,
+        labels: contents,
         chart: {
             width: 270,
             type: 'donut',
         },
         plotOptions: {
             pie: {
-                startAngle: -90,
-                endAngle: 270
+                startAngle: 0,
+                endAngle: 360
             }
         },
         dataLabels: {
@@ -45,6 +55,6 @@
         }]
     };
 
-    var chart = new ApexCharts(document.getElementById("{{ $paiChart}}"), options);
+    var chart = new ApexCharts(document.getElementById("{{ $paiChart }}"), options);
     chart.render();
 </script>

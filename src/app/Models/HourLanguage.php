@@ -13,11 +13,11 @@ class HourLanguage extends Model
 
     public function hour()
     {
-        return $this->belongsTo(Hour::class, 'hour_id');
+        return $this->belongsTo(Hour::class, 'time_id');
     }
 
     public function language()
     {
-        return $this->belongsTo(Language::class, 'language_id');
+        return $this->belongsTo(Language::class, 'name_id');
     }
 }

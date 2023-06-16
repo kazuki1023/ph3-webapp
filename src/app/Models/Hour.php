@@ -15,6 +15,11 @@ class Hour extends Model
         return $this->hasMany(HourLanguage::class, 'time_id');
     }
 
+    public function hourMedium()
+    {
+        return $this->hasMany(HourMedium::class, 'time_id');
+    }
+
     public function scopeTotalHourByDate($query)
     {
         return $query->select(DB::raw('DATE(date) AS date'), DB::raw('SUM(time) AS total_hour'))
