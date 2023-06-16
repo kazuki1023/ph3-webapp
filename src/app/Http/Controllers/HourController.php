@@ -18,6 +18,10 @@ class HourController extends Controller
 
         // 学習言語ごとの円グラフ用のデータを取得
         $languageHourData = HourLanguage::totalHourByLanguage()->get();
-        return view('/dashboard', compact('hourData', 'mediumHourData', 'languageHourData'));
+
+        // 今日の日付を取得して、今日の勉強時間を取得する
+        $todayHour = Hour::todayHour()->get();
+        dd($todayHour);
+        return view('/dashboard', compact('hourData', 'mediumHourData', 'languageHourData', 'todayHour'));
     }
 }
