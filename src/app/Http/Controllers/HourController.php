@@ -21,7 +21,6 @@ class HourController extends Controller
 
         // 今日の日付を取得して、今日の勉強時間を取得する
         $todayHour = Hour::todayHour();
-        dd($todayHour);
 
         // 今月の勉強時間を取得する
         $currentMonthHour = Hour::TotalHourCurrentMonth();
