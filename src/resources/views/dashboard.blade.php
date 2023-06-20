@@ -8,22 +8,19 @@
     <x-slot name="modalButton">
         <button type="button" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" data-modal-target="defaultModal" data-modal-toggle="defaultModal">学習時間記録</button>
     </x-slot>
-    <x-slot name="card">
+    <x-slot name="slot">
         {{-- 各card.blade.phpを呼び出したい --}}
         @include('layouts.card', [
             'title' => '今日',
             'Hour' => $todayHour,
-            'description' => 'Card Description',
         ])
         @include('layouts.card', [
             'title' => '今月',
             'Hour' => $currentMonthHour,
-            'description' => 'Card Description',
         ])
         @include('layouts.card', [
             'title' => '合計',
             'Hour' => $totalHour,
-            'description' => 'Card Description',
         ])
     </x-slot>
     <x-slot name="barChart">
