@@ -20,7 +20,14 @@ class HourController extends Controller
         $languageHourData = HourLanguage::totalHourByLanguage()->get();
 
         // 今日の日付を取得して、今日の勉強時間を取得する
-        $todayHour = Hour::todayHour()->get();
-        return view('/dashboard', compact('hourData', 'mediumHourData', 'languageHourData', 'todayHour'));
+        $todayHour = Hour::todayHour();
+        dd($todayHour);
+
+        // 今月の勉強時間を取得する
+        $currentMonthHour = Hour::TotalHourCurrentMonth();
+
+        // これまでの学習時間を取得する
+        $totalHour = Hour::TotalHour();
+        return view('/dashboard', compact('hourData', 'mediumHourData', 'languageHourData', 'todayHour', 'currentMonthHour', 'totalHour'));
     }
 }

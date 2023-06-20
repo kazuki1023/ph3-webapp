@@ -12,15 +12,17 @@
         {{-- 各card.blade.phpを呼び出したい --}}
         @include('layouts.card', [
             'title' => '今日',
-            'todayHour' => $todayHour,
+            'Hour' => $todayHour,
             'description' => 'Card Description',
         ])
         @include('layouts.card', [
             'title' => '今月',
+            'Hour' => $currentMonthHour,
             'description' => 'Card Description',
         ])
         @include('layouts.card', [
             'title' => '合計',
+            'Hour' => $totalHour,
             'description' => 'Card Description',
         ])
     </x-slot>

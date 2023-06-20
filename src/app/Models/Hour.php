@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 class Hour extends Model
@@ -29,6 +30,24 @@ class Hour extends Model
     public function scopeTodayHour($query)
     {
         return $query->select(DB::raw('DATE(date) AS date'), DB::raw('SUM(time) AS total_hour'))->whereDate('date', now())
-        ->groupBy('date')->orderBy('date','asc');
+        ->groupBy('date')->orderBy('date','asc')->first()->total_hour;
+    }
+
+    // 今月の勉強時間を取得する
+    public function scopeTotalHourCurrentMonth($query)
+    {
+        return $query->selectRaw('SUM(time) as total_hour')
+            ->whereYear('date', '=', Carbon::now()->format('Y'))
+            ->whereMonth('date', '=', Carbon::now()->format('m'))
+            ->first()
+            ->total_hour;
+    }
+
+    // これまでの学習時間を取得する
+    public function scopeTotalHour($query)
+    {
+        return $query->selectRaw('SUM(time) as total_hour')
+            ->first()
+            ->total_hour;
     }
 }
