@@ -14,6 +14,9 @@ export default defineConfig({
                 'resources/js/app.js',
             ],
             refresh: true,
+            server : {
+                port: 8000,
+            },
         }),
     ],
 });
