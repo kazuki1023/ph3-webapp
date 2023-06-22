@@ -79,7 +79,7 @@
                         {{-- 学習言語 --}}
                         <div>
                             <h4 class="font-medium mb-1">学習言語選択</h4>
-                            <div class="flex flex-wrap">
+                            <div class="flex flex-wrap gap-1">
                                 @foreach($languages as $language)
                                 <div class="modal_lang w-max">
                                     <label for="lang_{{ $language->id}}"class="lang"></label>
@@ -91,11 +91,13 @@
                         {{-- 学習媒体 --}}
                         <div>
                             <h4 class="font-medium mb-1">学習媒体選択</h4>
-                            <div>
+                            <div class="flex flex-wrap gap-1">
+                                @foreach($media as $medium)
                                 <div class="modal_medium">
-                                    <label for="medium_1"class="medium"></label>
-                                    <input type="checkbox" id="medium_1" value="N予備校">N予備校
+                                    <label for="medium_{{ $medium->id }}"class="medium"></label>
+                                    <input type="checkbox" id="medium_{{ $medium->id }}" value="{{ $medium->content }}">{{ $medium->content }}
                                 </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
