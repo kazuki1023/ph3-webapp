@@ -67,7 +67,8 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form action="" method="POST">
+            <form action="{{ route("dashboard.store")}}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="p-6 flex ">
                     <div class="text-base leading-relaxed text-gray-500 dark:text-gray-400 w-1/2">
                         {{-- 学習日 --}}
@@ -82,9 +83,9 @@
                             <div class="flex flex-wrap gap-1">
                                 @foreach ($languages as $language)
                                     <div class="modal_lang w-max">
-                                        <label for="lang_{{ $language->id }}"class="lang"></label>
+                                        <label for="lang_{{ $language->id }}"class="lang inline-block"></label>
                                         <input type="checkbox" id="lang_{{ $language->id }}"
-                                            value="{{ $language->name }}">{{ $language->name }}
+                                            value="{{ $language->id }}" name="lang[]">{{ $language->name }}
                                     </div>
                                 @endforeach
                             </div>
@@ -97,7 +98,7 @@
                                     <div class="modal_medium">
                                         <label for="medium_{{ $medium->id }}"class="medium"></label>
                                         <input type="checkbox" id="medium_{{ $medium->id }}"
-                                            value="{{ $medium->content }}">{{ $medium->content }}
+                                            value="{{ $medium->id }}" name="media[]">{{ $medium->content }}
                                     </div>
                                 @endforeach
                             </div>
@@ -109,7 +110,7 @@
                             <label for="studyHours"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">学習時間</label>
                             <select id="studyHours"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="studyHours">
                                 <option selected>学習時間を選択してね</option>
                                 @for ($i = 1; $i <= 24; $i++)
                                 <option value="{{ $i }}">{{ $i }}</option>
@@ -129,7 +130,7 @@
                 <!-- Modal footer -->
                 <div
                     class="flex items-center space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600 justify-center">
-                    <button data-modal-hide="defaultModal" type="button"
+                    <button data-modal-hide="defaultModal" type="submit"
                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">登録</button>
                 </div>
             </form>

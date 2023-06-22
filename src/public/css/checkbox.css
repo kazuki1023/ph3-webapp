@@ -15,14 +15,14 @@ label {
   cursor: pointer;
   padding: 5px 13px;
   position: relative;
-  width: auto;
+  width: max-content;
 }
 input[type=checkbox] + label {
   box-sizing: border-box;
   cursor: pointer;
   padding: 5px 13px;
   position: relative;
-  width: auto;
+  width: max-content;
 }
 
 input[type=checkbox] + label::before {
