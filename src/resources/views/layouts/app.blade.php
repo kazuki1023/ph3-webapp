@@ -37,7 +37,7 @@
 
         <!-- Page Content -->
         @if(isset($barChart))
-        <main class="relative mx-auto grid gap-10 pt-50 grid-cols-2 mt-2">
+        <main class="relative mx-auto grid gap-3 pt-50 grid-cols-2 mt-2">
             <div class="grid gap-10 min-w-[400px]">
                 <ul class="grid grid-cols-3 gap-6 h-[160px]">
                     {{ $slot }}

@@ -50,7 +50,7 @@
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 ">
             <!-- Modal header -->
-            <div class="flex items-start justify-between p-2 border-b rounded-t dark:border-gray-600 text-center">
+            <div class="flex items-start justify-center p-2 border-b rounded-t dark:border-gray-600 text-center">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white text-center justify-center align-middle">
                     登録画面
                 </h3>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="text-base leading-relaxed text-gray-500 dark:text-gray-400 w-1/2">
+                    <div class="text-base leading-relaxed text-gray-500 dark:text-gray-400 w-1/2 ">
                         {{-- 学習時間 --}}
                         <div class="mb-6">
                             <label for="studyHours"
