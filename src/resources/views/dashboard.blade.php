@@ -40,12 +40,13 @@
             'paiChart' => 'languageChart',
         ])
     </x-slot>
+
 </x-app-layout>
 
 <!-- Main modal -->
 <div id="defaultModal" tabindex="-1" aria-hidden="true"
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative w-full max-w-2xl max-h-full h-96">
+    <div class="relative w-full max-w-2xl max-h-full h-[500px]">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 h-96">
             <!-- Modal header -->
@@ -67,25 +68,56 @@
             </div>
             <!-- Modal body -->
             <form action="" method="POST">
-                <div class="p-6 flex w-[calc(100%-1rem)]">
-                    <div class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                <div class="p-6 flex ">
+                    <div class="text-base leading-relaxed text-gray-500 dark:text-gray-400 w-1/2">
                         {{-- 学習日 --}}
-                        <div></div>
+                        <div class="relative max-w-sm">
+                            <h4 class="font-medium mb-1">学習日</h4>
+                            <input type="date" name="date" id="date"
+                                class="w-full px-4 py-2 border rounded-lg">
+                        </div>
                         {{-- 学習言語 --}}
                         <div>
-                            <div class="modal_lang">
-                                <label for="html"class="lang"></label>
-                                <input type="checkbox" id="html" value="HTML">HTML
+                            <h4 class="font-medium mb-1">学習言語選択</h4>
+                            <div>
+                                <div class="modal_lang w-max">
+                                    <label for="lamg_1"class="lang"></label>
+                                    <input type="checkbox" id="lang_1" value="HTML">HTML
+                                </div>
                             </div>
                         </div>
                         {{-- 学習媒体 --}}
-                        <div></div>
+                        <div>
+                            <h4 class="font-medium mb-1">学習媒体選択</h4>
+                            <div>
+                                <div class="modal_medium">
+                                    <label for="medium_1"class="medium"></label>
+                                    <input type="checkbox" id="medium_1" value="N予備校">N予備校
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    <div class="text-base leading-relaxed text-gray-500 dark:text-gray-400 w-1/2">
+                        {{-- 学習時間 --}}
+                        <div class="mb-6">
+                            <label for="default-input"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Default
+                                input</label>
+                            <input type="text" id="default-input"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                        {{-- コメント --}}
+                        <div>
+                            <label for="message"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">コメント</label>
+                            <textarea id="message" rows="4"
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="コメントあれば"></textarea>
+                        </div>
                     </div>
                 </div>
                 <!-- Modal footer -->
-                <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                <div class="flex items-center space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600 justify-center">
                     <button data-modal-hide="defaultModal" type="button"
                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">登録</button>
                 </div>
@@ -94,4 +126,4 @@
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js" defer></script>
-<script src="{{asset("scripts/checkbox.js")}}"></script>
+<script src="{{ asset('scripts/checkbox.js') }}"></script>
