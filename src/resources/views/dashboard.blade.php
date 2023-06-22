@@ -46,9 +46,9 @@
 <!-- Main modal -->
 <div id="defaultModal" tabindex="-1" aria-hidden="true"
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative w-full max-w-2xl max-h-full h-[500px]">
+    <div class="relative w-full max-w-2xl h-[calc(100%-1rem)]">
         <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 h-96">
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 ">
             <!-- Modal header -->
             <div class="flex items-start justify-between p-2 border-b rounded-t dark:border-gray-600 text-center">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white text-center justify-center align-middle">
@@ -79,11 +79,13 @@
                         {{-- 学習言語 --}}
                         <div>
                             <h4 class="font-medium mb-1">学習言語選択</h4>
-                            <div>
+                            <div class="flex flex-wrap">
+                                @foreach($languages as $language)
                                 <div class="modal_lang w-max">
-                                    <label for="lamg_1"class="lang"></label>
-                                    <input type="checkbox" id="lang_1" value="HTML">HTML
+                                    <label for="lang_{{ $language->id}}"class="lang"></label>
+                                    <input type="checkbox" id="lang_{{ $language->id}}" value="{{ $language -> name}}">{{ $language -> name }}
                                 </div>
+                                @endforeach
                             </div>
                         </div>
                         {{-- 学習媒体 --}}

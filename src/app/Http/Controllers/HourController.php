@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Hour;
 use App\Models\HourMedium;
 use App\Models\HourLanguage;
+use App\Models\Language;
 use Illuminate\Http\Request;
 
 class HourController extends Controller
@@ -27,6 +28,9 @@ class HourController extends Controller
 
         // これまでの学習時間を取得する
         $totalHour = Hour::TotalHour();
-        return view('/dashboard', compact('hourData', 'mediumHourData', 'languageHourData', 'todayHour', 'currentMonthHour', 'totalHour'));
+
+        // 学種言語を取得する
+        $languages = Language::all();
+        return view('/dashboard', compact('hourData', 'mediumHourData', 'languageHourData', 'todayHour', 'currentMonthHour', 'totalHour', 'languages'));
     }
 }
