@@ -22,7 +22,7 @@ class HourController extends Controller
         $languageHourData = HourLanguage::totalHourByLanguage()->get();
 
         // 今日の日付を取得して、今日の勉強時間を取得する
-        $todayHour = Hour::todayHour();
+        $todayHour = Hour::todayHour()->total_hour;
 
         // 今月の勉強時間を取得する
         $currentMonthHour = Hour::TotalHourCurrentMonth();

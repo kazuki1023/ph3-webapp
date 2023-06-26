@@ -30,7 +30,7 @@ class Hour extends Model
     public function scopeTodayHour($query)
     {
         return $query->select(DB::raw('DATE(date) AS date'), DB::raw('SUM(time) AS total_hour'))->whereDate('date', now())
-        ->groupBy('date')->orderBy('date','asc')->first()->total_hour;
+        ->groupBy('date')->orderBy('date','asc')->first();
     }
 
     // 今月の勉強時間を取得する
