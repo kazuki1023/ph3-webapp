@@ -103,8 +103,9 @@ npm run build
 ## 以下のURLにアクセスして、画面が表示されたら成功です
 http://localhost
 
+## ログイン情報
+id: admin@examole.com
+password : password
 
-## commit命名規則
-以下に従ってやろ
-![参考画像](./src/public/img/Screen%20Shot%202023-03-07%20at%2023.43.26.png)
+
 
