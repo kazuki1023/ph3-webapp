@@ -41,7 +41,6 @@ class ModalController extends Controller
             $validator = Validator::make($request->all(), $rules, $messages);
             if ($validator->fails()) {
                 // バリデーションエラーが発生した場合の処理
-                dd($request->all());
                 return redirect()->back()->withErrors($validator)->withInput();
             }
             // データの登録
