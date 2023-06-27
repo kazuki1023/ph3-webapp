@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\HourController;
+use App\Http\Controllers\ModalController;
 use App\Http\Controllers\ProfileController;
 use App\Models\HourLanguage;
 use App\Models\Hour;
@@ -32,8 +33,6 @@ require __DIR__.'/auth.php';
 // グループ化されたルートの定義
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [HourController::class, 'index'])->name('dashboard');
-    Route::get('/register' ,function() {
-        return view('layouts.modal.register');
-    }) ->name('register');
+    Route::get('/register' , [ModalController::class, 'index']) ->name('register');
     Route::post('/dashboard/store', [HourController::class, 'store'])->name('dashboard.store');
 });
