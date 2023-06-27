@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class HourLanguage extends Model
 {
+    protected $fillable = [
+        'time_id',
+        'name_id',
+    ];
     // 中間テーブル作成
     protected $table = 'hour_language';
     public $timestamps = true;

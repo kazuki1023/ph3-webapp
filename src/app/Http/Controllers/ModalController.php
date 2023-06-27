@@ -50,6 +50,16 @@ class ModalController extends Controller
                 'time' => $request->studyHours,
                 'date' => $request->date,
             ]);
+            foreach($request->lang as $lang)
+                HourLanguage::create([
+                    'time_id' => Hour::latest()->value('id'),
+                    'name_id' => $lang,
+                ]);
+            foreach($request->media as $media)
+                HourMedium::create([
+                    'time_id' => Hour::latest()->value('id'),
+                    'content_id' => $media,
+                ]);
             $hourData = Hour::totalHourByDate()->get();
             $mediumHourData = HourMedium::totalHourByMedium()->get();
             $languageHourData = HourLanguage::totalHourByLanguage()->get();

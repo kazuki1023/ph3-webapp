@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class HourMedium extends Model
 {
+    protected $fillable = [
+        'time_id',
+        'content_id',
+    ];
     use HasFactory;
     protected $table = 'hour_medium';
     public function hour()
