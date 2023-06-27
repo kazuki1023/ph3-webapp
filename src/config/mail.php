@@ -37,13 +37,25 @@ return [
         'smtp' => [
             'transport' => 'smtp',
             'url' => env('MAIL_URL'),
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-            'port' => env('MAIL_PORT', 587),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
+            'host' => env('MAIL_HOST', 'localhost'),
+            'port' => env('MAIL_PORT', 1025),
+            'encryption' => env('MAIL_ENCRYPTION', null),
+            'username' => env('MAIL_USERNAME', null),
+            'password' => env('MAIL_PASSWORD', null),
             'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN'),
+            'auth_mode' => null,
+        ],
+
+        // Add the following configuration for MailHog
+        'mailhog' => [
+            'transport' => 'smtp',
+            'host' => 'mailhog',
+            'port' => 1025,
+            'encryption' => null,
+            'username' => null,
+            'password' => null,
+            'timeout' => null,
+            'auth_mode' => null,
         ],
 
         'ses' => [
@@ -84,6 +96,11 @@ return [
                 'smtp',
                 'log',
             ],
+        ],
+
+        'from' => [
+            'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+            'name' => env('MAIL_FROM_NAME', 'webapp'),
         ],
     ],
 

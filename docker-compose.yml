@@ -29,7 +29,7 @@ services:
     working_dir: /work/web
     tty: true
     depends_on:
-      - app
+      - phpfpm
   nginx:
     build:
       context: ./web

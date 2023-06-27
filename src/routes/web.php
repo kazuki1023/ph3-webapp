@@ -1,6 +1,9 @@
 <?php
-
+use App\Http\Controllers\HourController;
+use App\Http\Controllers\ModalController;
 use App\Http\Controllers\ProfileController;
+use App\Models\HourLanguage;
+use App\Models\Hour;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,14 +21,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 require __DIR__.'/auth.php';
+
+
+// グループ化されたルートの定義
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [HourController::class, 'index'])->name('dashboard');
+    Route::get('/register' , [ModalController::class, 'index']) ->name('register');
+    Route::post('/dashboard/store', [ModalController::class, 'store'])->name('dashboard.store');
+});
