@@ -23,7 +23,7 @@ class HourController extends Controller
         $languageHourData = HourLanguage::totalHourByLanguage()->get();
 
         // 今日の日付を取得して、今日の勉強時間を取得する
-        $todayHour = Hour::todayHour()->total_hour;
+        $todayHour = Hour::todayHour()->value('total_hour');
 
         // 今月の勉強時間を取得する
         $currentMonthHour = Hour::TotalHourCurrentMonth();
@@ -59,19 +59,23 @@ class HourController extends Controller
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
             // バリデーションエラーが発生した場合の処理
+            dd($request->all());
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
         // データの登録
         Hour::create([
-            'hour' => $request->hour,
+            'user_id' => 1,
+            'time' => $request->studyHours,
             'date' => $request->date,
-            'language_id' => $request->language_id,
-            'medium_id' => $request->medium_id,
-            'user_id' => $request->user()->id,
         ]);
-
-        // リダイレクト
-        return redirect()->route('dashboard');
+        $hourData = Hour::totalHourByDate()->get();
+        $mediumHourData = HourMedium::totalHourByMedium()->get();
+        $languageHourData = HourLanguage::totalHourByLanguage()->get();
+        $todayHour = Hour::todayHour()->value('total_hour');
+        $currentMonthHour = Hour::TotalHourCurrentMonth();
+        $totalHour = Hour::TotalHour();
+        $languages = Language::all();
+        $media = Medium::all();
+        return view('/dashboard', compact('hourData', 'mediumHourData', 'languageHourData', 'todayHour', 'currentMonthHour', 'totalHour', 'languages', 'media'));
     }
 }

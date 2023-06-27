@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('hours', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->comment("ユーザーID");
-            $table->integer('time')->comment("学習時間");
-            $table->date('date')->comment("学習日");
+            $table->foreignId('user_id')->comment("ユーザーID");
+            $table->integer('time')->nullable()->comment("学習時間");
+            $table->date('date')->nullable()->comment("学習日");
             $table->timestamps();
         });
     }
