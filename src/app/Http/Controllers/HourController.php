@@ -23,7 +23,7 @@ class HourController extends Controller
         $languageHourData = HourLanguage::totalHourByLanguage()->get();
 
         // 今日の日付を取得して、今日の勉強時間を取得する
-        $todayHour = Hour::todayHour()->total_hour;
+        $todayHour = Hour::todayHour()->value('total_hour');
 
         // 今月の勉強時間を取得する
         $currentMonthHour = Hour::TotalHourCurrentMonth();
@@ -39,39 +39,4 @@ class HourController extends Controller
         return view('/dashboard', compact('hourData', 'mediumHourData', 'languageHourData', 'todayHour', 'currentMonthHour', 'totalHour', 'languages', 'media'));
     }
 
-    // 登録処理
-    public function store(Request $request)
-    {
-        // バリデーション
-        $rules = [
-            'date' => 'required|date',
-            'lang' => 'required',
-            'media' => 'required',
-            'studyHours' => 'required|integer',
-        ];
-        $messages = [
-            'date.required' => '学習日を入力してください',
-            'lang.required' => '学習言語を１つ以上選択してください',
-            'media.required' => '学習媒体を１つ以上選択してください',
-            'studyHours.required' => '学習時間を選択してください',
-            'studyHours.integer' => '学習時間を選択してください',
-        ];
-        $validator = Validator::make($request->all(), $rules, $messages);
-        if ($validator->fails()) {
-            // バリデーションエラーが発生した場合の処理
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-        // データの登録
-        Hour::create([
-            'hour' => $request->hour,
-            'date' => $request->date,
-            'language_id' => $request->language_id,
-            'medium_id' => $request->medium_id,
-            'user_id' => $request->user()->id,
-        ]);
-
-        // リダイレクト
-        return redirect()->route('dashboard');
-    }
 }
