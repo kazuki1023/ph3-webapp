@@ -34,5 +34,5 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [HourController::class, 'index'])->name('dashboard');
     Route::get('/register' , [ModalController::class, 'index']) ->name('register');
-    Route::post('/dashboard/store', [HourController::class, 'store'])->name('dashboard.store');
+    Route::post('/dashboard/store', [ModalController::class, 'store'])->name('dashboard.store');
 });
