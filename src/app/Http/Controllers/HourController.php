@@ -7,6 +7,7 @@ use App\Models\HourLanguage;
 use App\Models\Language;
 use App\Models\Medium;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class HourController extends Controller
 {
@@ -41,14 +42,25 @@ class HourController extends Controller
     // 登録処理
     public function store(Request $request)
     {
-        dd($request->all());
         // バリデーション
-        $request->validate([
-            'hour' => 'required|integer|min:0|max:24',
+        $rules = [
             'date' => 'required|date',
-            'language_id' => 'required|integer',
-            'medium_id' => 'required|integer',
-        ]);
+            'lang' => 'required',
+            'media' => 'required',
+            'studyHours' => 'required|integer',
+        ];
+        $messages = [
+            'date.required' => '学習日を入力してください',
+            'lang.required' => '学習言語を１つ以上選択してください',
+            'media.required' => '学習媒体を１つ以上選択してください',
+            'studyHours.required' => '学習時間を選択してください',
+            'studyHours.integer' => '学習時間を選択してください',
+        ];
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            // バリデーションエラーが発生した場合の処理
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         // データの登録
         Hour::create([

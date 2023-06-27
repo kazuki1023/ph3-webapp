@@ -32,5 +32,8 @@ require __DIR__.'/auth.php';
 // グループ化されたルートの定義
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [HourController::class, 'index'])->name('dashboard');
+    Route::get('/register' ,function() {
+        return view('layouts.modal.register');
+    }) ->name('register');
     Route::post('/dashboard/store', [HourController::class, 'store'])->name('dashboard.store');
 });
