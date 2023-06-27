@@ -10,11 +10,11 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
+    <link rel="stylesheet" href="{{asset("css/reset.css")}}">
+    <link rel="stylesheet" href="{{asset("css/checkbox.css")}}">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
 </head>
 
 <body class="font-sans antialiased">
@@ -37,7 +37,7 @@
 
         <!-- Page Content -->
         @if(isset($barChart))
-        <main class="relative mx-auto grid gap-10 pt-50 grid-cols-2 ">
+        <main class="relative mx-auto grid gap-3 pt-50 grid-cols-2 mt-2">
             <div class="grid gap-10 min-w-[400px]">
                 <ul class="grid grid-cols-3 gap-6 h-[160px]">
                     {{ $slot }}
@@ -57,7 +57,6 @@
         </main>
         @endif
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </body>
 
 </html>

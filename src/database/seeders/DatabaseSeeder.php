@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MediaTableSeeder::class);
         $this->call(LanguagesTableSeeder::class);
         $this->call(HoursTableSeeder::class);
+        $this->call(HourMediumSeeder::class);
+        $this->call(HourLanguageSeeder::class);
     }
 }

@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hour_language', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('hour_id')->constrained('hours')->comment("学習時間ID");
-            $table->foreignId('language_id')->constrained('languages')->comment("言語ID");
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            //is_adminカラムを追加
+            $table->boolean('is_admin')->default(false);
         });
     }
 
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hour_language');
+        Schema::dropIfExists('users');
     }
 };

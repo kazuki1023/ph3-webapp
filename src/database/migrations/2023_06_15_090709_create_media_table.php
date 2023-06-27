@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hour_medium', function (Blueprint $table) {
+        Schema::create('media', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('hour_id')->constrained('hours')->comment("学習時間ID");
-            $table->foreignId('medium_id')->constrained('media')->comment("学習媒体ID");
+            $table->string('content')->comment("学習媒体");
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hour_medium');
+        Schema::dropIfExists('media');
     }
 };
